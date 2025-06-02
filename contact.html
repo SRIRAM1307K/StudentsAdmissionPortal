@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - School Admissions</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Add this inside the <head> before your own styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        color: #333;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        margin-bottom: 50px;
+      }
+
+      .info-box {
+        flex: 1;
+        text-align: center;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-box h3 {
+        font-size: large;
+        font-weight: bold;
+        margin-top: 0;
+        color: #0056b3;
+      }
+
+      form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+      }
+
+      form .form-group {
+        margin-bottom: 20px;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      form textarea {
+        height: 120px;
+      }
+
+      form button {
+        background: #0056b3;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background: #003d80;
+      }
+
+      .map {
+        margin-top: 40px;
+      }
+      .map h3 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      iframe {
+        width: 100%;
+        height: 300px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div
+      class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
+    >
+      <div class="mb-2 md:mb-0">
+        <!-- <img src="" alt=" Logo" class="h-10" /> -->
+        <a href="index.html"
+          ><i id="logoImg" class="fa-solid fa-school" style="color: #000000"></i
+        ></a>
+      </div>
+      <ul
+        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
+      >
+        <a href="index.html">
+          <li class="cursor-pointer hover:underline">Home</li></a
+        >
+        <a href="About.html"
+          ><li class="cursor-pointer hover:underline">About</li></a
+        >
+        <li class="cursor-pointer hover:underline">Contact</li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="header">
+        <h1>Contact Admissions</h1>
+        <p>
+          Reach out to us for any questions regarding admissions or school
+          programs.
+        </p>
+      </div>
+
+      <div class="contact-info">
+        <div class="info-box">
+          <h3>Phone</h3>
+          <p>+1 (555) 123-4567</p>
+        </div>
+        <div class="info-box">
+          <h3>Email</h3>
+          <p>admissions@schoolname.edu</p>
+        </div>
+        <div class="info-box">
+          <h3>Address</h3>
+          <p>123 Education Lane,<br />Springfield, ST 00000</p>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="name">Full Name*</label>
+          <input type="text" id="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address*</label>
+          <input type="email" id="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message*</label>
+          <textarea id="message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="map">
+        <h3>Find Us</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4748.892250973743!2d-2.2427439053435103!3d53.47835818252328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1bfe43258a3%3A0x27650db69af4d10c!2sEC%20Manchester%20English%20Language%20School!5e0!3m2!1sen!2sin!4v1748841657561!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>

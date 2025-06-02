@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Admission Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="font-sans bg-cover bg-fixed bg-center text-gray-800"
+    style="
+      background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1470&q=80');
+    "
+  >
+    <div class="bg-white/80 min-h-screen">
+      <!-- Navigation -->
+      <div
+        class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
+      >
+        <div class="mb-2 md:mb-0">
+          <!-- <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0px6I0_WrFPW8ellS1yyeGs5EI0yFTnQ97g&s"
+          alt="Logo"
+          class="h-10"
+        /> -->
+          <a href="index.html"
+            ><i
+              id="logoImg"
+              class="fa-solid fa-school"
+              style="color: #000000"
+            ></i
+          ></a>
+        </div>
+        <ul
+          class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
+        >
+          <a href="#"><li class="cursor-pointer hover:underline">Home</li></a>
+          <a href="About.html">
+            <li class="cursor-pointer hover:underline">About</li></a
+          >
+          <li>
+            <select
+              onchange="if (this.value) window.location.href=this.value;"
+              class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
+            >
+              <option value="#">ExtraCurricular</option>
+              <option value="#sec1">Swimming</option>
+              <option value="#sec2">Table Tennis</option>
+              <option value="#sec3">Badminton</option>
+            </select>
+          </li>
+          <li>
+            <select
+              onchange="if (this.value) window.location.href=this.value;"
+              class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
+            >
+              <option value="#feeStructure">Fee</option>
+              <option value="#fees-tuition">Tuition Fee</option>
+              <option value="#fees-bus">Bus Fee</option>
+            </select>
+          </li>
+          <a href="admission.html"
+            ><li class="cursor-pointer hover:underline">Admission Form</li></a
+          >
+          <a href="contact.html"
+            ><li class="cursor-pointer hover:underline">Contact Us</li></a
+          >
+        </ul>
+      </div>
+
+      <!-- Content -->
+      <div class="content p-6">
+        <div class="container max-w-4xl mx-auto">
+          <img
+            id="sclimg"
+            src="https://media.istockphoto.com/id/171306436/photo/red-brick-high-school-building-exterior.jpg?s=612x612&w=0&k=20&c=vksDyCVrfCpvb9uk4-wcBYu6jbTZ3nCOkGHPSgNy-L0="
+            alt="School Image"
+            class="w-full h-auto rounded-2xl shadow-md mb-4 transition duration-500 hover:scale-105"
+          />
+          <p id="scldesc" class="text-gray-700 text-lg">
+            <b
+              >A school is an educational institution where individuals,
+              typically children and young people, receive formal
+              education...</b
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Extra Content -->
+      <div class="extraContent p-6 max-w-4xl mx-auto space-y-10">
+        <h1 id="extrah1" class="text-3xl font-bold text-[rebeccapurple]">
+          ExtraCurricular Activities
+        </h1>
+
+        <!-- Activity Cards -->
+        <div class="grid gap-10">
+          <div
+            id="sec1"
+            class="bg-white shadow-lg p-4 rounded-lg transition hover:shadow-xl"
+          >
+            <h2 class="text-xl font-semibold">Swimming</h2>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI5fxkTx1GEuDgHLfZMFsWHV5_iplRpNm6tw&s"
+              alt="Swimming"
+              class="w-full h-auto my-2 rounded"
+            />
+            <p class="text-gray-700 text-lg font-bold">
+              Swimming is the movement of the body through water...
+            </p>
+          </div>
+
+          <div
+            id="sec2"
+            class="bg-white shadow-lg p-4 rounded-lg transition hover:shadow-xl"
+          >
+            <h2 class="text-xl font-semibold">Table Tennis</h2>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8mWusR0oQlci2vlvRD14BWLOVFG5auPYiow&s"
+              alt="Table Tennis"
+              class="w-full h-auto my-2 rounded"
+            />
+            <p class="text-gray-700 text-lg font-bold">
+              Table tennis, also known as ping pong, is a fast-paced...
+            </p>
+          </div>
+
+          <div
+            id="sec3"
+            class="bg-white shadow-lg p-4 rounded-lg transition hover:shadow-xl"
+          >
+            <h2 class="text-xl font-semibold">Badminton</h2>
+            <img
+              src="https://media.ahmedabadmirror.com/am/uploads/mediaGallery/image/1648617691732.jpg-org"
+              alt="Badminton"
+              class="w-full h-auto my-2 rounded"
+            />
+            <p class="text-gray-700 text-lg font-bold">
+              Badminton is a racquet sport played using racquets...
+            </p>
+          </div>
+        </div>
+
+        <!-- Fee Section -->
+        <div id="fees-tuition" class="mt-10">
+          <h2 class="text-2xl font-bold text-[rebeccapurple] mb-2">
+            Tuition Fee
+          </h2>
+          <img
+            src="https://media.istockphoto.com/id/187244393/photo/we-will-get-to-the-right-answer-eventually.jpg?s=612x612&w=0&k=20&c=sv85YclfSvJwBzxHipFN5YSNIDSU6YXe8skqZb6QVjw="
+            alt=""
+            class="w-full h-auto my-2 rounded shadow"
+          />
+          <p class="text-gray-700 text-lg font-bold">
+            Our tuition fees vary by grade level and course...
+          </p>
+        </div>
+
+        <div id="fees-bus" class="mt-6">
+          <h2 class="text-2xl font-bold text-[rebeccapurple] mb-2">Bus Fee</h2>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8L9t0YAmWhDAP_3IPVPiqFilxKtOosVbXBQ&s"
+            alt=""
+            class="w-full h-auto my-2 rounded shadow"
+          />
+          <p class="text-gray-700 text-lg font-bold">
+            Bus fees depend on distance and route...
+          </p>
+        </div>
+      </div>
+
+      <!-- Stylish Fee Structure -->
+      <div
+        id="feeStructure"
+        class="max-w-4xl mx-auto mt-16 bg-gradient-to-br from-purple-100 via-white to-purple-200 p-10 rounded-3xl shadow-2xl"
+      >
+        <h2 class="text-3xl font-bold text-center text-[rebeccapurple] mb-8">
+          Fee Structure
+        </h2>
+
+        <form id="feeForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Dynamic Items First -->
+          <div
+            class="flex items-center justify-between bg-white rounded-xl p-4 shadow"
+          >
+            <label class="font-medium text-gray-700">Swimming</label>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                class="fee-option accent-[rebeccapurple]"
+                data-fee="1200"
+              />
+              <span class="text-gray-600 font-semibold">₹ 1200</span>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-white rounded-xl p-4 shadow"
+          >
+            <label class="font-medium text-gray-700">Badminton</label>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                class="fee-option accent-[rebeccapurple]"
+                data-fee="900"
+              />
+              <span class="text-gray-600 font-semibold">₹ 900</span>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-white rounded-xl p-4 shadow"
+          >
+            <label class="font-medium text-gray-700">Table Tennis</label>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                class="fee-option accent-[rebeccapurple]"
+                data-fee="1000"
+              />
+              <span class="text-gray-600 font-semibold">₹ 1000</span>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-white rounded-xl p-4 shadow"
+          >
+            <label class="font-medium text-gray-700">Bus Fee</label>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                class="fee-option accent-[rebeccapurple]"
+                data-fee="1500"
+              />
+              <span class="text-gray-600 font-semibold">₹ 1500</span>
+            </div>
+          </div>
+
+          <!-- Tuition Last (Disabled/Fixed) -->
+          <div
+            class="md:col-span-2 flex items-center justify-between bg-purple-50 border border-purple-300 rounded-xl p-4 shadow"
+          >
+            <label class="font-semibold text-[rebeccapurple] text-lg"
+              >Tuition Fee (Fixed)</label
+            >
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked
+                disabled
+                class="accent-[rebeccapurple]"
+              />
+              <span class="text-[rebeccapurple] font-bold">₹ 5000</span>
+            </div>
+          </div>
+
+          <!-- Total & Pay Button -->
+          <div class="md:col-span-2 flex flex-col items-end mt-6">
+            <div class="text-xl font-bold text-gray-800 mb-4">
+              Total Fee: ₹ <span id="totalFee">5000</span>
+            </div>
+            <button
+              type="button"
+              id="payNowBtn"
+              class="bg-[rebeccapurple] hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300"
+            >
+              Pay Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const baseFee = 5000;
+        const feeOptions = document.querySelectorAll(".fee-option");
+        const totalDisplay = document.getElementById("totalFee");
+        const payNowBtn = document.getElementById("payNowBtn");
+
+        function calculateTotal() {
+          let total = baseFee;
+          feeOptions.forEach((option) => {
+            if (option.checked) {
+              total += parseInt(option.dataset.fee);
+            }
+          });
+          totalDisplay.textContent = total;
+          return total;
+        }
+
+        function updateTotal() {
+          totalDisplay.textContent = calculateTotal();
+        }
+
+        feeOptions.forEach((option) => {
+          option.addEventListener("change", updateTotal);
+        });
+
+        updateTotal();
+
+        payNowBtn.addEventListener("click", () => {
+          const totalAmount = calculateTotal();
+
+          const options = {
+            key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+            amount: totalAmount * 100, // Amount in paise
+            currency: "INR",
+            name: "Your School Name",
+            description: "Admission & Extra Fees Payment",
+            image: "",
+            handler: function (response) {
+              alert(
+                "Payment successful! Payment ID: " +
+                  response.razorpay_payment_id
+              );
+            },
+            prefill: {
+              name: "Student Name",
+              email: "student@example.com",
+              contact: "9876543210",
+            },
+            theme: {
+              color: "#663399",
+            },
+          };
+
+          const rzp = new Razorpay(options);
+          rzp.open();
+        });
+      });
+    </script>
+  </body>
+</html>

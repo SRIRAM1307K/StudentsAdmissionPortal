@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div
+      class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
+    >
+      <div class="mb-2 md:mb-0">
+        <!-- <img src="" alt="Logo" class="h-10" /> -->
+        <a href="index.html"
+          ><i id="logoImg" class="fa-solid fa-school" style="color: #000000"></i
+        ></a>
+      </div>
+      <ul
+        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
+      >
+        <a href="index.html"
+          ><li class="cursor-pointer hover:underline">Home</li></a
+        >
+        <a href="About.html">
+          <li class="cursor-pointer hover:underline">About</li></a
+        >
+        <!-- <li>
+          <select
+            onchange="if (this.value) window.location.href=this.value;"
+            class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
+          >
+            <option value="#">ExtraCurricular</option>
+            <option value="#sec1">Swimming</option>
+            <option value="#sec2">Table Tennis</option>
+            <option value="#sec3">Badminton</option>
+          </select>
+        </li>
+        <li>
+          <select
+            onchange="if (this.value) window.location.href=this.value;"
+            class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
+          >
+            <option value="#">Fees</option>
+            <option value="#fees-tuition">Tuition Fee</option>
+            <option value="#fees-bus">Bus Fee</option>
+          </select>
+        </li> -->
+        <a href="admission.html"
+          ><li class="cursor-pointer hover:underline">Admission Form</li></a
+        >
+        <a href="contact.html"
+          ><li class="cursor-pointer hover:underline">Contact Us</li></a
+        >
+      </ul>
+    </div>
+
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About Our School</h2>
+          <p>
+            Welcome to our school — a nurturing environment where academic
+            excellence meets holistic development. We are committed to inspiring
+            curiosity, fostering creativity, and preparing students for the
+            future through personalized education and global awareness.
+          </p>
+
+          <h3>Achievements</h3>
+          <ul>
+            <li>🏆 National Top 10 Ranking in Academic Excellence</li>
+            <li>🎓 100% Graduation Rate for the last 5 years</li>
+            <li>🌎 Exchange Program with 5 International Partner Schools</li>
+            <li>⚽ State Champions in Soccer and Robotics</li>
+            <li>📚 Over 10,000 books in our Digital Library</li>
+          </ul>
+        </div>
+
+        <div class="about-video">
+          <iframe
+            src="https://www.youtube.com/embed/ScMzIvxBSi4"
+            title="School Introduction Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add this inside your <style> or external CSS -->
+    <style>
+      .about-section {
+        background-color: #f4f8fb;
+        padding: 60px 20px;
+      }
+
+      .about-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1 1 500px;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .about-text p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        color: #444;
+        text-align: justify;
+      }
+
+      .about-text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #0056b3;
+        font-weight: bold;
+      }
+
+      .about-text ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .about-text li {
+        padding: 8px 0;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .about-video {
+        flex: 1 1 500px;
+      }
+
+      .about-video iframe {
+        width: 100%;
+        height: 300px;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </body>
+</html>
