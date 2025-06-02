@@ -4,133 +4,283 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>School Admission Form</title>
-    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+    </style>
   </head>
-  <body class="font-sans bg-gray-50">
-    <!-- Navigation -->
+
+  <body class="bg-gray-50 relative">
+    <!-- ✅ Watermark: visible behind everything -->
     <div
-      class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
+      class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-40deg] opacity-20 z-0 pointer-events-none select-none"
+      style="z-index: 1"
+    >
+      <img
+        src="data:image/png;base64,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"
+        alt="Watermark"
+        class="w-[500px] h-auto"
+      />
+    </div>
+
+    <!-- ✅ Navigation -->
+    <div
+      class="relative z-20 flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0"
     >
       <div class="mb-2 md:mb-0">
-        <!-- <img src="" alt=" Logo" class="h-10" /> -->
-        <a href="index.html"
-          ><i id="logoImg" class="fa-solid fa-school" style="color: #000000"></i
-        ></a>
+        <a href="index.html">
+          <i class="fa-solid fa-school text-black text-2xl"></i>
+        </a>
       </div>
       <ul
-        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
+        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] font-medium items-center"
       >
-        <a href="index.html">
-          <li class="cursor-pointer hover:underline">Home</li></a
-        >
-        <a href="About.html"
-          ><li class="cursor-pointer hover:underline">About</li></a
-        >
-        <a href="contact.html"
-          ><li class="cursor-pointer hover:underline">Contact</li></a
-        >
+        <a href="index.html"><li class="hover:underline">Home</li></a>
+        <a href="About.html"><li class="hover:underline">About</li></a>
+        <a href="contact.html"><li class="hover:underline">Contact</li></a>
       </ul>
     </div>
 
-    <!-- Admission Form -->
-    <div class="max-w-4xl mx-auto mt-10 p-8 bg-white rounded-3xl shadow-2xl">
+    <!-- ✅ Admission Form -->
+    <div
+      class="relative z-10 max-w-5xl mx-auto mt-10 p-8 bg-transparent rounded-3xl shadow-2xl"
+    >
       <h2 class="text-3xl font-bold text-center text-[rebeccapurple] mb-6">
         School Admission Form
       </h2>
+
       <form class="space-y-6">
+        <!-- Student Info -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Student's Full Name -->
           <div>
             <label class="block font-medium text-gray-700 mb-1"
-              >Full Name</label
+              >Student's Full Name</label
             >
             <input
               type="text"
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
-              placeholder="Enter student's full name"
               required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
+          <!-- Date of Birth -->
           <div>
             <label class="block font-medium text-gray-700 mb-1"
               >Date of Birth</label
             >
             <input
               type="date"
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
               required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
+          <!-- Gender -->
+          <div>
+            <label class="block font-medium text-gray-700 mb-1">Gender</label>
+            <select
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            >
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- Nationality -->
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Nationality</label
+            >
+            <input
+              type="text"
+              placeholder="e.g., Indian"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+
+          <!-- Aadhaar -->
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Aadhaar Number</label
+            >
+            <input
+              type="text"
+              maxlength="12"
+              pattern="\d{12}"
+              placeholder="Enter exactly 12 digits"
+              required
+              inputmode="numeric"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+
+          <!-- Blood Group -->
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Blood Group</label
+            >
+            <input
+              type="text"
+              placeholder="e.g., A1+ / O-"
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+        </div>
+
+        <!-- Parents Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Father's First Name</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Father's Last Name</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Mother's First Name</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Mother's Last Name</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+        </div>
+
+        <!-- Contact & Academic Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label class="block font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
-              placeholder="Enter email"
               required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
             />
           </div>
-
           <div>
-            <label class="block font-medium text-gray-700 mb-1">Phone</label>
+            <label class="block font-medium text-gray-700 mb-1"
+              >Phone Number</label
+            >
             <input
               type="tel"
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
-              placeholder="Enter phone number"
               required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
             />
           </div>
-
           <div>
             <label class="block font-medium text-gray-700 mb-1"
               >Class Applying For</label
             >
             <select
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
+              required
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
             >
               <option value="">Select</option>
-              <option value="Nursery">Nursery</option>
-              <option value="LKG">LKG</option>
-              <option value="UKG">UKG</option>
-              <option value="1">1st Grade</option>
-              <option value="2">2nd Grade</option>
-              <option value="3">3rd Grade</option>
-              <!-- Add more grades as needed -->
+              <option>Nursery</option>
+              <option>LKG</option>
+              <option>UKG</option>
+              <option>1st Grade</option>
+              <option>2nd Grade</option>
+              <option>3rd Grade</option>
+              <option>4th Grade</option>
+              <option>5th Grade</option>
+              <option>6th Grade</option>
+              <option>7th Grade</option>
+              <option>8th Grade</option>
+              <option>9th Grade</option>
+              <option>10th Grade</option>
+              <option>Higher Secondary</option>
             </select>
           </div>
-
           <div>
-            <label class="block font-medium text-gray-700 mb-1">Address</label>
-            <input
-              type="text"
-              class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
-              placeholder="Enter address"
-              required
-            />
+            <label class="block font-medium text-gray-700 mb-1">Category</label>
+            <select
+              class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            >
+              <option value="">Select</option>
+              <option>General</option>
+              <option>SC</option>
+              <option>ST</option>
+              <option>OBC</option>
+              <option>Others</option>
+            </select>
           </div>
         </div>
 
+        <!-- Address -->
+        <div>
+          <label class="block font-medium text-gray-700 mb-1">Address</label>
+          <input
+            type="text"
+            required
+            class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+          />
+        </div>
+
+        <!-- Additional Info -->
         <div>
           <label class="block font-medium text-gray-700 mb-1"
             >Additional Information</label
           >
           <textarea
             rows="4"
-            class="w-full px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-400"
-            placeholder="Any health condition, special needs, etc."
+            class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+            placeholder="Any medical condition, special needs, etc."
           ></textarea>
         </div>
 
+        <!-- Upload Photo -->
+        <div>
+          <label class="block font-medium text-gray-700 mb-1"
+            >Upload Student Photo</label
+          >
+          <input
+            type="file"
+            accept="image/*"
+            class="w-full px-4 py-2 rounded border focus:ring-2 focus:ring-purple-400"
+          />
+        </div>
+
+        <!-- Submit -->
         <div class="text-center">
           <button
             type="submit"

@@ -15,6 +15,31 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <style>
+      /* Transition styles for nav links */
+      #navLinks {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
+
+      #navLinks.open {
+        max-height: 1000px; /* large enough to show all links */
+        opacity: 1;
+      }
+
+      /* On md+ show nav links as flex and fully visible */
+      @media (min-width: 768px) {
+        #navLinks {
+          max-height: none !important;
+          opacity: 1 !important;
+          overflow: visible !important;
+          display: flex !important;
+        }
+      }
+    </style>
   </head>
   <body
     class="font-sans bg-cover bg-fixed bg-center text-gray-800"
@@ -27,55 +52,66 @@
       <div
         class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
       >
-        <div class="mb-2 md:mb-0">
-          <!-- <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0px6I0_WrFPW8ellS1yyeGs5EI0yFTnQ97g&s"
-          alt="Logo"
-          class="h-10"
-        /> -->
-          <a href="index.html"
-            ><i
+        <div
+          class="mb-2 md:mb-0 flex items-center justify-between w-full md:w-auto"
+        >
+          <!-- Logo -->
+          <a href="index.html">
+            <i
               id="logoImg"
               class="fa-solid fa-school"
               style="color: #000000"
-            ></i
-          ></a>
-        </div>
-        <ul
-          class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
-        >
-          <a href="#"><li class="cursor-pointer hover:underline">Home</li></a>
-          <a href="About.html">
-            <li class="cursor-pointer hover:underline">About</li></a
+            ></i>
+          </a>
+
+          <!-- Hamburger Button (only visible on mobile) -->
+          <button
+            id="menuToggle"
+            class="md:hidden text-[rebeccapurple] text-2xl focus:outline-none"
+            aria-label="Toggle menu"
           >
-          <li>
-            <select
-              onchange="if (this.value) window.location.href=this.value;"
-              class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
-            >
-              <option value="#">ExtraCurricular</option>
-              <option value="#sec1">Swimming</option>
-              <option value="#sec2">Table Tennis</option>
-              <option value="#sec3">Badminton</option>
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Nav Links -->
+        <div
+          id="navLinks"
+          class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-start w-full md:w-auto mt-4 md:mt-0"
+        >
+          <a href="#"
+            ><li class="cursor-pointer hover:underline list-none">Home</li></a
+          >
+          <a href="About.html"
+            ><li class="cursor-pointer hover:underline list-none">About</li></a
+          >
+          <li class="list-none">
+            <select onchange="scrollToSection(this.value)" class="outline-none">
+              <option value="" disabled selected>ExtraCurricular</option>
+              <option value="sec1">Swimming</option>
+              <option value="sec2">Table Tennis</option>
+              <option value="sec3">Badminton</option>
             </select>
           </li>
-          <li>
-            <select
-              onchange="if (this.value) window.location.href=this.value;"
-              class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
-            >
-              <option value="#feeStructure">Fee</option>
-              <option value="#fees-tuition">Tuition Fee</option>
-              <option value="#fees-bus">Bus Fee</option>
+          <li class="list-none">
+            <select onchange="scrollToSection(this.value)" class="outline-none">
+              <option value="" disabled selected>Fee</option>
+              <option value="fees-tuition">Tuition Fee</option>
+              <option value="fees-bus">Bus Fee</option>
+              <option value="feeStructure">Fee Structure</option>
             </select>
           </li>
           <a href="admission.html"
-            ><li class="cursor-pointer hover:underline">Admission Form</li></a
+            ><li class="cursor-pointer hover:underline list-none">
+              Admission Form
+            </li></a
           >
           <a href="contact.html"
-            ><li class="cursor-pointer hover:underline">Contact Us</li></a
+            ><li class="cursor-pointer hover:underline list-none">
+              Contact Us
+            </li></a
           >
-        </ul>
+        </div>
       </div>
 
       <!-- Content -->
@@ -111,7 +147,7 @@
           >
             <h2 class="text-xl font-semibold">Swimming</h2>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI5fxkTx1GEuDgHLfZMFsWHV5_iplRpNm6tw&s"
+              src="https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg"
               alt="Swimming"
               class="w-full h-auto my-2 rounded"
             />
@@ -126,7 +162,7 @@
           >
             <h2 class="text-xl font-semibold">Table Tennis</h2>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8mWusR0oQlci2vlvRD14BWLOVFG5auPYiow&s"
+              src="https://images.pexels.com/photos/976873/pexels-photo-976873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="Table Tennis"
               class="w-full h-auto my-2 rounded"
             />
@@ -141,7 +177,7 @@
           >
             <h2 class="text-xl font-semibold">Badminton</h2>
             <img
-              src="https://media.ahmedabadmirror.com/am/uploads/mediaGallery/image/1648617691732.jpg-org"
+              src="https://images.pexels.com/photos/2202685/pexels-photo-2202685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="Badminton"
               class="w-full h-auto my-2 rounded"
             />
@@ -152,12 +188,15 @@
         </div>
 
         <!-- Fee Section -->
-        <div id="fees-tuition" class="mt-10">
+        <div
+          id="fees-tuition"
+          class="bg-white mt-10 shadow-lg p-4 rounded-lg transition hover:shadow-xl"
+        >
           <h2 class="text-2xl font-bold text-[rebeccapurple] mb-2">
             Tuition Fee
           </h2>
           <img
-            src="https://media.istockphoto.com/id/187244393/photo/we-will-get-to-the-right-answer-eventually.jpg?s=612x612&w=0&k=20&c=sv85YclfSvJwBzxHipFN5YSNIDSU6YXe8skqZb6QVjw="
+            src="https://images.pexels.com/photos/5427671/pexels-photo-5427671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             class="w-full h-auto my-2 rounded shadow"
           />
@@ -165,16 +204,18 @@
             Our tuition fees vary by grade level and course...
           </p>
         </div>
-
-        <div id="fees-bus" class="mt-6">
+        <div
+          id="fees-bus"
+          class="bg-white mt-10 shadow-lg p-4 rounded-lg transition hover:shadow-xl"
+        >
           <h2 class="text-2xl font-bold text-[rebeccapurple] mb-2">Bus Fee</h2>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8L9t0YAmWhDAP_3IPVPiqFilxKtOosVbXBQ&s"
+            src="https://images.pexels.com/photos/5427671/pexels-photo-5427671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             class="w-full h-auto my-2 rounded shadow"
           />
           <p class="text-gray-700 text-lg font-bold">
-            Bus fees depend on distance and route...
+            Bus fees depend on distance and route..
           </p>
         </div>
       </div>
@@ -283,60 +324,78 @@
 
     <!-- SCRIPT -->
     <script>
+      // Scroll function (unchanged)
+      function scrollToSection(sectionId) {
+        if (!sectionId) return;
+
+        const target = document.getElementById(sectionId);
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          const buffer = 20;
+          if (rect.top < buffer && rect.bottom > window.innerHeight - buffer) {
+            return;
+          }
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
       window.addEventListener("DOMContentLoaded", () => {
-        const baseFee = 5000;
+        // Nav toggle
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+        });
+
+        // Fee calculation
         const feeOptions = document.querySelectorAll(".fee-option");
-        const totalDisplay = document.getElementById("totalFee");
-        const payNowBtn = document.getElementById("payNowBtn");
+        const totalFeeDisplay = document.getElementById("totalFee");
+        let fixedTuitionFee = 5000;
 
         function calculateTotal() {
-          let total = baseFee;
+          let total = fixedTuitionFee;
           feeOptions.forEach((option) => {
             if (option.checked) {
-              total += parseInt(option.dataset.fee);
+              total += parseInt(option.getAttribute("data-fee") || 0);
             }
           });
-          totalDisplay.textContent = total;
-          return total;
-        }
-
-        function updateTotal() {
-          totalDisplay.textContent = calculateTotal();
+          totalFeeDisplay.textContent = total;
         }
 
         feeOptions.forEach((option) => {
-          option.addEventListener("change", updateTotal);
+          option.addEventListener("change", calculateTotal);
         });
 
-        updateTotal();
+        calculateTotal();
 
+        // Payment
+        const payNowBtn = document.getElementById("payNowBtn");
         payNowBtn.addEventListener("click", () => {
-          const totalAmount = calculateTotal();
+          const amount = parseInt(totalFeeDisplay.textContent) * 100; // in paise
 
-          const options = {
-            key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
-            amount: totalAmount * 100, // Amount in paise
+          var options = {
+            key: "rzp_test_fupq6TGk85S8HZ", // Enter your Razorpay key here
+            amount: amount,
             currency: "INR",
-            name: "Your School Name",
-            description: "Admission & Extra Fees Payment",
-            image: "",
+            name: "SCHOOL NAME",
+            description: "Fee Payment",
             handler: function (response) {
               alert(
-                "Payment successful! Payment ID: " +
+                "Payment successful. Payment ID: " +
                   response.razorpay_payment_id
               );
             },
             prefill: {
-              name: "Student Name",
-              email: "student@example.com",
-              contact: "9876543210",
+              name: "John Doe",
+              email: "john@example.com",
             },
             theme: {
-              color: "#663399",
+              color: "#7c3aed",
             },
           };
 
-          const rzp = new Razorpay(options);
+          var rzp = new Razorpay(options);
           rzp.open();
         });
       });
