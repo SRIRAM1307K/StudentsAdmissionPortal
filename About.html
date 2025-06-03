@@ -18,49 +18,66 @@
     <div
       class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
     >
-      <div class="mb-2 md:mb-0">
-        <!-- <img src="" alt="Logo" class="h-10" /> -->
-        <a href="index.html"
-          ><i id="logoImg" class="fa-solid fa-school" style="color: #000000"></i
-        ></a>
+      <div
+        class="mb-2 md:mb-0 flex items-center justify-between w-full md:w-auto"
+      >
+        <!-- Logo -->
+        <a href="index.html">
+          <i
+            id="logoImg"
+            class="fa-solid fa-school text-3xl"
+            style="color: rebeccapurple"
+          ></i>
+        </a>
+
+        <!-- Hamburger Button (only visible on mobile) -->
+        <button
+          id="menuToggle"
+          class="md:hidden text-[rebeccapurple] text-2xl focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-      <ul
-        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-base font-medium items-center"
+
+      <!-- Nav Links -->
+      <div
+        id="navLinks"
+        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-lg font-medium items-start w-full md:w-auto mt-4 md:mt-0"
       >
         <a href="index.html"
-          ><li class="cursor-pointer hover:underline">Home</li></a
+          ><li class="cursor-pointer hover:underline list-none">Home</li></a
         >
-        <a href="About.html">
-          <li class="cursor-pointer hover:underline">About</li></a
+        <a href="About.html"
+          ><li class="cursor-pointer hover:underline list-none">About</li></a
         >
-        <!-- <li>
-          <select
-            onchange="if (this.value) window.location.href=this.value;"
-            class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
-          >
-            <option value="#">ExtraCurricular</option>
-            <option value="#sec1">Swimming</option>
-            <option value="#sec2">Table Tennis</option>
-            <option value="#sec3">Badminton</option>
+        <!-- <li class="list-none">
+          <select onchange="scrollToSection(this.value)" class="outline-none">
+            <option value="" disabled selected>ExtraCurricular</option>
+            <option value="sec1">Swimming</option>
+            <option value="sec2">Table Tennis</option>
+            <option value="sec3">Badminton</option>
           </select>
         </li>
-        <li>
-          <select
-            onchange="if (this.value) window.location.href=this.value;"
-            class="bg-transparent text-[rebeccapurple] text-base font-medium cursor-pointer outline-none border-none hover:underline appearance-none"
-          >
-            <option value="#">Fees</option>
-            <option value="#fees-tuition">Tuition Fee</option>
-            <option value="#fees-bus">Bus Fee</option>
+        <li class="list-none">
+          <select onchange="scrollToSection(this.value)" class="outline-none">
+            <option value="" disabled selected>Fee</option>
+            <option value="fees-tuition">Tuition Fee</option>
+            <option value="fees-bus">Bus Fee</option>
+            <option value="feeStructure">Fee Structure</option>
           </select>
         </li> -->
         <a href="admission.html"
-          ><li class="cursor-pointer hover:underline">Admission Form</li></a
+          ><li class="cursor-pointer hover:underline list-none">
+            Admission Form
+          </li></a
         >
         <a href="contact.html"
-          ><li class="cursor-pointer hover:underline">Contact Us</li></a
+          ><li class="cursor-pointer hover:underline list-none">
+            Contact Us
+          </li></a
         >
-      </ul>
+      </div>
     </div>
 
     <section class="about-section">

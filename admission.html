@@ -34,20 +34,68 @@
 
     <!-- ✅ Navigation -->
     <div
-      class="relative z-20 flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0"
+      class="nav flex flex-col md:flex-row justify-between items-center p-4 md:px-10 shadow bg-white sticky top-0 z-50"
     >
-      <div class="mb-2 md:mb-0">
-        <a href="index.html">
-          <i class="fa-solid fa-school text-black text-2xl"></i>
-        </a>
-      </div>
-      <ul
-        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] font-medium items-center"
+      <div
+        class="mb-2 md:mb-0 flex items-center justify-between w-full md:w-auto"
       >
-        <a href="index.html"><li class="hover:underline">Home</li></a>
-        <a href="About.html"><li class="hover:underline">About</li></a>
-        <a href="contact.html"><li class="hover:underline">Contact</li></a>
-      </ul>
+        <!-- Logo -->
+        <a href="index.html">
+          <i
+            id="logoImg"
+            class="fa-solid fa-school text-3xl"
+            style="color: rebeccapurple"
+          ></i>
+        </a>
+
+        <!-- Hamburger Button (only visible on mobile) -->
+        <button
+          id="menuToggle"
+          class="md:hidden text-[rebeccapurple] text-2xl focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <div
+        id="navLinks"
+        class="flex flex-col md:flex-row gap-4 text-[rebeccapurple] text-lg font-medium items-start w-full md:w-auto mt-4 md:mt-0"
+      >
+        <a href="index.html"
+          ><li class="cursor-pointer hover:underline list-none">Home</li></a
+        >
+        <a href="About.html"
+          ><li class="cursor-pointer hover:underline list-none">About</li></a
+        >
+        <!-- <li class="list-none">
+          <select onchange="scrollToSection(this.value)" class="outline-none">
+            <option value="" disabled selected>ExtraCurricular</option>
+            <option value="sec1">Swimming</option>
+            <option value="sec2">Table Tennis</option>
+            <option value="sec3">Badminton</option>
+          </select>
+        </li>
+        <li class="list-none">
+          <select onchange="scrollToSection(this.value)" class="outline-none">
+            <option value="" disabled selected>Fee</option>
+            <option value="fees-tuition">Tuition Fee</option>
+            <option value="fees-bus">Bus Fee</option>
+            <option value="feeStructure">Fee Structure</option>
+          </select>
+        </li> -->
+        <a href="admission.html"
+          ><li class="cursor-pointer hover:underline list-none">
+            Admission Form
+          </li></a
+        >
+        <a href="contact.html"
+          ><li class="cursor-pointer hover:underline list-none">
+            Contact Us
+          </li></a
+        >
+      </div>
     </div>
 
     <!-- ✅ Admission Form -->
